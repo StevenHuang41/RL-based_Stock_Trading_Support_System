@@ -1,4 +1,4 @@
-# Stock Behavior Learning
+# RL-based Stock Trading Support System
 
 This project implements **multiple reinforcement learning (RL) agents** for stock trading using historical data from Yahoo Finance (yf). It contains both classic RL methods (q-learning and SARSA) and deep RL (Deep Q-Networks, Deep SARSA), with multiple action selection strategies (epsilon-greedy, softmax).
 
