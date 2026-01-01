@@ -3,7 +3,6 @@
 This project implements **multiple reinforcement learning (RL) agents** for stock trading using historical data from Yahoo Finance (yf). It contains both classic RL methods (q-learning and SARSA) and deep RL (Deep Q-Networks, Deep SARSA), with multiple action selection strategies (epsilon-greedy, softmax).
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-![number of visitors](https://visitor-badge.laobi.icu/badge?page_id=StevenHuange41.stock_behavior_learning)
 
 ## Motivation
 
@@ -27,20 +26,20 @@ This experience motivated me to explore whether an **AI agent** could learn to m
 
 * **Preprocess** stock raw data for RL state
 
-* **Multiple RL Agents:**  
-    * q-learning  
-    * SARSA  
-    * Deep q-learning (DQN)  
-    * Deep SARSA  
+* **Multiple RL Agents:**
+    * q-learning
+    * SARSA
+    * Deep q-learning (DQN)
+    * Deep SARSA
 
-* **Action Policy:**  
-    * Epsilon-Greedy  
-    * Softmax method  
+* **Action Policy:**
+    * Epsilon-Greedy
+    * Softmax method
 
-* **Performance Evaluation:**  
+* **Performance Evaluation:**
     <sub>Compares RL agents earning to traditional buy-and-hold strategy</sub>
 
-* **Visualization:**  
+* **Visualization:**
     <sub>Plots portfolio values of agents and traditional strategy</sup>
 
 ## Project Structure
@@ -59,8 +58,8 @@ This experience motivated me to explore whether an **AI agent** could learn to m
 
 ### Prerequisites
 
-* Python: >=3.12,<<span style="color: gold">3.13</span>  
-* (Optional) uv 
+* Python: >=3.12,<<span style="color: gold">3.13</span>
+* (Optional) uv
 
 
 
@@ -97,10 +96,10 @@ python main.py [stock no]
 Replace `[stock no]` with Yahho Finance ticker (eg. `0050.TW` or `AAPL`)
 You can search tickers on [Yahoo Finance](https://finance.yahoo.com/).
 
-Example:  
+Example:
 ![runtime example img](./readme_images/img1.png)
 
-Finish training process:  
+Finish training process:
 ![finish training img](./readme_images/img2.png)
 
 After training finished, it will have three directories created in project root, `images/`, `documents/` and `model_weights/`.
@@ -109,7 +108,7 @@ After training finished, it will have three directories created in project root,
 
 ### Evaluate Agent Results
 
-There are two ways to see the performance of each agent. 
+There are two ways to see the performance of each agent.
 
 #### 1. Image Result
 ```sh
@@ -124,7 +123,7 @@ Example:
 #### 2. Text Result
 ```sh
 cd documents
-open [document].txt 
+open [document].txt
 ```
 Example:
 ![show text result img](./readme_images/img4.png)
@@ -158,7 +157,7 @@ class RLAgent(
 
 agent = RLAgent(
     stock_no="0050.TW",             # change for image title!
-    len_avg_days=len(stock_data),   
+    len_avg_days=len(stock_data),
     policy='q_learning'             # choose agent policy
     action_policy='epsilon_greedy'  # choose action policy
     alpha=0.001,                    # change as you wish here!
@@ -167,7 +166,7 @@ agent = RLAgent(
 )
 
 agent.train(stock_data)
-# or use the best recorded performance 
+# or use the best recorded performance
 # agent.load_q_table(load_best=True)
 
 # save image
@@ -213,7 +212,7 @@ deep_agent = [DQNAgent | DsarsaAgent](  # choose agent policy
 
 # use 'stock_data_' for deep agent learning
 deep_agent.train(stock_data_)
-# or use the best recorded performance 
+# or use the best recorded performance
 # deep_agent.load_weight(load_best=True)
 
 # save image
@@ -233,8 +232,8 @@ If you get best result and want to save it to `best_performance/`, you can use `
 
 ## Issue
 
-1. [ ] yfinance: 
-    
+1. [ ] yfinance:
+
     If a stock has split but yfinance does not update this information, then agent will learn without knowing the stock has experienced splitting.
 
 2. [ ] setting avg_days variable
@@ -266,4 +265,4 @@ If you get best result and want to save it to `best_performance/`, you can use `
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).  
+This project is licensed under the [MIT License](./LICENSE).
