@@ -8,6 +8,12 @@ An experimental reinforcement learning project for studying stock-trading decisi
 
 The project compares classic tabular reinforcement learning agents and deep reinforcement learning agents in a simplified buy/sell/hold environment. It is designed as a learning and experimentation system, not as production trading software or financial advice.
 
+<p align="center">
+  <img src="best_performance/DQN_epsilon_greedy.png" alt="DQN epsilon-greedy portfolio value compared with buy-and-hold baseline" width="820">
+</p>
+
+<p align="center"><em>Example DQN + epsilon-greedy evaluation result against a buy-and-hold baseline.</em></p>
+
 ---
 
 ## Table of Contents
