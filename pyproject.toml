@@ -1,9 +1,11 @@
 [project]
 name = "stock_behavior_learning"
 version = "0.1.0"
-description = "Add your description here"
+description = "Experimental reinforcement learning stock-trading support system with Q-learning, SARSA, DQN, Deep SARSA, backtesting-style evaluation, and Yahoo Finance data ingestion."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
+license = "MIT"
+keywords = ["reinforcement-learning", "stock-trading", "q-learning", "sarsa", "dqn", "yfinance", "backtesting"]
 dependencies = [
     "ipykernel>=6.29.5",
     "matplotlib>=3.10.3",
@@ -11,7 +13,6 @@ dependencies = [
     "pip>=25.1.1",
     "scikit-learn>=1.7.0",
     "scikit-optimize>=0.10.2",
-    "tdqm>=0.0.1",
     "tensorflow>=2.19.0",
     "tqdm>=4.67.1",
     "yfinance>=0.2.65",
@@ -21,4 +22,10 @@ dependencies = [
 dev = [
     "ipykernel>=6.29.5",
     "pip>=25.1.1",
+    "pytest>=8.0.0",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-q"]
+# pythonpath = ["."]

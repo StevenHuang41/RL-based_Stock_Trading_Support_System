@@ -216,8 +216,6 @@ soupsieve==2.7
     # via beautifulsoup4
 stack-data==0.6.3
     # via ipython
-tdqm==0.0.1
-    # via stock-behavior-learning (pyproject.toml)
 tensorboard==2.19.0
     # via tensorflow
 tensorboard-data-server==0.7.2
@@ -233,9 +231,7 @@ tornado==6.5.1
     #   ipykernel
     #   jupyter-client
 tqdm==4.67.1
-    # via
-    #   stock-behavior-learning (pyproject.toml)
-    #   tdqm
+    # via stock-behavior-learning (pyproject.toml)
 traitlets==5.14.3
     # via
     #   comm
