@@ -35,6 +35,8 @@ def prerpocess(
     stock_no: str,
     df: pd.DataFrame,
     avg_days: List[int],
+    *,
+    adjust_splits: bool = False,
 ) -> pd.DataFrame:
     df = df[['Close', 'Open', 'Volume']].copy()
 
@@ -47,20 +49,16 @@ def prerpocess(
     df = df.droplevel('Ticker', axis=1)
 
     ## stock split
-    ticker = yf.Ticker(stock_no)
-    splits = ticker.splits
+    if adjust_splits:
+        ticker = yf.Ticker(stock_no)
+        splits = ticker.splits
 
-    if len(splits):
-        split_dates = [str(d).split(' ')[0] for d in splits.index]
-        split_ratio = splits.values
+        if len(splits):
+            split_dates = [str(d).split(' ')[0] for d in splits.index]
+            split_ratio = splits.values
 
-        for d, r in zip(split_dates, split_ratio):
-            df.loc[df.index > d, ['Open', 'Close']] *= r
-
-    ## yf does not updates the information of 0050.TW stock split
-    ## we manuelly adjust it, but hopefully it would update in the future
-    ## should be remove in the deplopyment
-    # df.loc[df.index > '2025-06-06', ['Open', 'Close']] *= 4
+            for d, r in zip(split_dates, split_ratio):
+                df.loc[df.index >= d, ['Open', 'Close']] *= r
         
     ## fill 0 volume recored with avg_volume
     volume_mean = int(df['Volume'][df['Volume'] != 0].mean())
